@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     @if ($errors->any())
@@ -48,8 +49,28 @@
             @endforeach
                     </div>
                 </select><br>
-                <button class="btn btn-primary">Submit</button>
+                <button type="button" onclick="sweetalert()" class="btn btn-primary">Save Changes</button>
+
         </div>
     </form>
 </body>
+<script>
+    function sweetalert()
+    {
+        Swal.fire({
+  title: "Do you want to save the changes?",
+  showDenyButton: true,
+  showCancelButton: true,
+  confirmButtonText: "Save",
+  denyButtonText: `Don't save`
+}).then((result) => {
+  /* Read more about isConfirmed, isDenied below */
+  if (result.isConfirmed) {
+    Swal.fire("Saved!", "", "success");
+  } else if (result.isDenied) {
+    Swal.fire("Changes are not saved", "", "info");
+  }
+});
+    }
+</script>
 </html>
