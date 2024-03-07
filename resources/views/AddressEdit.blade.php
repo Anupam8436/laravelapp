@@ -22,7 +22,7 @@
 
         <div class="container">
             <div class="form-group">
-                <label>Add Locatiojn</label><br>
+                <label>Add Location</label><br>
                 <input type="text" name="location" value="{{$edit->location}}" class="form-control"><br>
                     </div>
                     <div class="form-group">
